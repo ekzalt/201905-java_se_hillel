@@ -1,9 +1,9 @@
 package homework05;
 
 public abstract class Vehicle {
-    protected int speed;
-    protected int price;
-    protected int fuel;
+    private int speed;
+    private int price;
+    private int fuel;
 
     public Vehicle(int speed, int price, int fuel) {
         this.speed = speed;

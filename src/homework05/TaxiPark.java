@@ -3,8 +3,8 @@ package homework05;
 import java.util.Arrays;
 
 public class TaxiPark {
-    CarVehicle[] cars = new CarVehicle[0];
-    CarVehicle[] temp;
+    private CarVehicle[] cars = new CarVehicle[0];
+    private CarVehicle[] temp;
 
     public void setCars(CarVehicle[] cars) {
         this.cars = cars;

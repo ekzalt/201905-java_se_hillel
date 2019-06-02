@@ -2,10 +2,14 @@ package homework05;
 
 public abstract class CarVehicle extends Vehicle {
     // комфорт
-    protected int comfort;
+    private int comfort;
 
     public CarVehicle(int speed, int price, int fuel, int comfort) {
         super(speed, price, fuel);
         this.comfort = comfort;
+    }
+
+    public int getComfort() {
+        return comfort;
     }
 }

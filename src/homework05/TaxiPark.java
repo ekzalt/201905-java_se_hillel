@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class TaxiPark {
     private CarVehicle[] cars = new CarVehicle[0];
-    private CarVehicle[] temp;
 
     public void setCars(CarVehicle[] cars) {
         this.cars = cars;
@@ -41,32 +40,27 @@ public class TaxiPark {
         return cost;
     }
 
-    private CarVehicle[] resize(int capacity) {
-        CarVehicle[] copy = new CarVehicle[capacity];
+    private CarVehicle[] resizeAndPush(CarVehicle[] cars, CarVehicle car) {
+        CarVehicle[] copy = new CarVehicle[cars.length + 1];
 
-        for (int i = 0; i < temp.length; i++) {
-            copy[i] = temp[i];
+        for (int i = 0; i < cars.length; i++) {
+            copy[i] = cars[i];
         }
+
+        copy[copy.length - 1] = car;
 
         return copy;
     }
 
-    private void push(CarVehicle car) {
-        temp = resize(temp.length + 1);
-        temp[temp.length -1] = car;
-    }
-
     public CarVehicle[] findBySpeedRange(int min, int max) {
-        temp = new CarVehicle[0];
-
-        if (cars.length == 0) return temp;
+        CarVehicle[] filtered = new CarVehicle[0];
 
         for (CarVehicle car : cars) {
             if (car.getSpeed() >= min && car.getSpeed() <= max) {
-                push(car);
+                filtered = resizeAndPush(filtered, car);
             }
         }
 
-        return temp;
+        return filtered;
     }
 }

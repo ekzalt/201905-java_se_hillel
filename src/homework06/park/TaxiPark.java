@@ -1,19 +1,16 @@
-package homework05;
+package homework06.park;
 
-import java.util.Arrays;
+import homework06.vehicle.IVehicle;
+import homework06.vehicle.Toyota;
 
-public class TaxiPark {
-    private CarVehicle[] cars = new CarVehicle[0];
+public class TaxiPark implements ITaxiPark {
+    private IVehicle[] cars = new Toyota[0];
 
-    public void setCars(CarVehicle[] cars) {
-        this.cars = cars;
-    }
-
-    private void bubbleSortByFuel(CarVehicle[] cars) {
+    private void bubbleSortByFuel(IVehicle[] cars) {
         for (int i = cars.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (cars[j].getFuel() > cars[j + 1].getFuel()){
-                    CarVehicle tmp = cars[j];
+                    IVehicle tmp = cars[j];
                     cars[j] = cars[j + 1];
                     cars[j + 1] = tmp;
                 }
@@ -21,7 +18,7 @@ public class TaxiPark {
         }
     }
 
-    public CarVehicle[] sortByFuel() {
+    public IVehicle[] sortByFuel() {
         if (cars.length == 0) return cars;
 
         bubbleSortByFuel(cars);
@@ -33,15 +30,15 @@ public class TaxiPark {
 
         if (cars.length == 0) return cost;
 
-        for (CarVehicle car : cars) {
+        for (IVehicle car : cars) {
             cost += car.getPrice();
         }
 
         return cost;
     }
 
-    private CarVehicle[] resizeAndPush(CarVehicle[] cars, CarVehicle car) {
-        CarVehicle[] copy = new CarVehicle[cars.length + 1];
+    private IVehicle[] resizeAndPush(IVehicle[] cars, IVehicle car) {
+        IVehicle[] copy = new Toyota[cars.length + 1];
 
         for (int i = 0; i < cars.length; i++) {
             copy[i] = cars[i];
@@ -52,15 +49,19 @@ public class TaxiPark {
         return copy;
     }
 
-    public CarVehicle[] findBySpeedRange(int min, int max) {
-        CarVehicle[] filtered = new CarVehicle[0];
+    public IVehicle[] findBySpeedRange(int min, int max) {
+        IVehicle[] filtered = new Toyota[0];
 
-        for (CarVehicle car : cars) {
+        for (IVehicle car : cars) {
             if (car.getSpeed() >= min && car.getSpeed() <= max) {
                 filtered = resizeAndPush(filtered, car);
             }
         }
 
         return filtered;
+    }
+
+    public void setCars(IVehicle[] cars) {
+        this.cars = cars;
     }
 }

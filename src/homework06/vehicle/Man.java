@@ -1,20 +1,20 @@
-package homework05;
+package homework06.vehicle;
 
-public class IsuzuBusVehicle extends BusVehicle {
-    private String brand = "Isuzu";
+public class Man extends Truck {
+    private String brand = "Man";
     private String model;
 
-    public IsuzuBusVehicle(int speed, int price, int fuel, int capacity, String model) {
-        super(speed, price, fuel, capacity);
+    public Man(int speed, int price, int fuel, int carrying, String model) {
+        super(speed, price, fuel, carrying);
         this.model = model;
     }
 
     @Override
     public String toString() {
-        return "IsuzuBusVehicle{" +
+        return "Man{" +
                 "brand='" + getBrand() + '\'' +
                 ", model='" + getModel() + '\'' +
-                ", capacity=" + getCapacity() +
+                ", carrying=" + getCarrying() +
                 ", speed=" + getSpeed() +
                 ", price=" + getPrice() +
                 ", fuel=" + getFuel() +
@@ -23,7 +23,7 @@ public class IsuzuBusVehicle extends BusVehicle {
 
     @Override
     public void go() {
-        System.out.println("Isuzu bus is on the road");
+        System.out.println("Man truck is on the road");
     }
 
     public String getBrand() {

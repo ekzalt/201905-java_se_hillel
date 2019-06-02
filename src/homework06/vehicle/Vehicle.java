@@ -1,6 +1,6 @@
-package homework05;
+package homework06.vehicle;
 
-public abstract class Vehicle {
+public abstract class Vehicle implements IVehicle {
     private int speed;
     private int price;
     private int fuel;

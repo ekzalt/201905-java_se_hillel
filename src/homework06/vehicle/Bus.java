@@ -1,10 +1,10 @@
-package homework05;
+package homework06.vehicle;
 
-public abstract class BusVehicle extends Vehicle {
+public abstract class Bus extends Vehicle {
     // вместимость
     private int capacity;
 
-    public BusVehicle(int speed, int price, int fuel, int capacity) {
+    public Bus(int speed, int price, int fuel, int capacity) {
         super(speed, price, fuel);
         this.capacity = capacity;
     }

@@ -29,10 +29,12 @@ public class ScannerReader {
             try {
                 separator.separate(from, to);
 
+                /*
                 while (collector.getCounter() < THREADS) {
                     System.out.println("sleep");
                     Thread.sleep(10);
                 }
+                 */
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

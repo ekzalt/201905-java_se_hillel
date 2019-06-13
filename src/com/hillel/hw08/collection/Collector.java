@@ -25,24 +25,12 @@ public class Collector {
     }
 
     synchronized public void pushAll(int[] items) {
-        while (inProgress) {
-            try {
-                wait(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
-        inProgress = true;
-
         for (int simple : items) {
             push(simple);
         }
 
         counter++;
-        System.out.println(counter);
-        inProgress = false;
-        notify();
+        System.out.println("synchronized called: " + counter);
     }
 
     public int[] getResult() {

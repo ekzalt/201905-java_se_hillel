@@ -30,11 +30,9 @@ public class ThreadSeparator {
             thread.start();
         }
 
-        /*
         for (Thread thread : workers) {
             thread.join();
         }
-         */
     }
 
     public int getThreads() {

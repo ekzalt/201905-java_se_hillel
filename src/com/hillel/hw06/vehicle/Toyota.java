@@ -11,6 +11,7 @@ public class Toyota extends Car {
 
     @Override
     public String toString() {
+        /*
         return "Toyota{" +
                 "brand='" + getBrand() + '\'' +
                 ", model='" + getModel() + '\'' +
@@ -19,6 +20,18 @@ public class Toyota extends Car {
                 ", price=" + getPrice() +
                 ", fuel=" + getFuel() +
                 '}';
+         */
+
+        StringBuilder builder = new StringBuilder();
+        builder
+                .append(getSpeed()+",")
+                .append(getPrice()+",")
+                .append(getFuel()+",")
+                .append(getComfort()+",")
+                .append(getModel()+",")
+                .append(getClass().getSimpleName()+";");
+
+        return builder.toString();
     }
 
     @Override

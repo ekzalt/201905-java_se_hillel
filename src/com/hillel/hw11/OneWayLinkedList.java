@@ -32,23 +32,23 @@ public class OneWayLinkedList<E> {
     }
 
     public void addLast(E data) {
-        Node<E> prevLast = last;
+        Node<E> current = last;
         last = new Node<>(data, null);
 
-        if (prevLast == null) {
+        if (current == null) {
             first = last;
         } else {
-            prevLast.next = last;
+            current.next = last;
         }
 
         size++;
     }
 
     public void addFirst(E data) {
-        Node<E> prevFirst = first;
-        first = new Node<>(data, prevFirst);
+        Node<E> current = first;
+        first = new Node<>(data, current);
 
-        if (prevFirst == null) {
+        if (current == null) {
             last = first;
         }
 
@@ -57,17 +57,17 @@ public class OneWayLinkedList<E> {
 
     private void linkByIndex(int index, E data) {
         int position = 1;
-        Node<E> prevPrevLast = first;
-        Node<E> prevLast = first.next;
+        Node<E> previous = first;
+        Node<E> current = first.next;
 
         while (position < index) {
-            prevPrevLast = prevLast;
-            prevLast = prevLast.next;
+            previous = current;
+            current = current.next;
             position++;
         }
 
-        Node<E> node = new Node<>(data, prevLast);
-        prevPrevLast.next = node;
+        Node<E> node = new Node<>(data, current);
+        previous.next = node;
         size++;
     }
 
@@ -89,16 +89,16 @@ public class OneWayLinkedList<E> {
         }
 
         E data = last.data;
-        Node<E> prevPrevLast = first;
-        Node<E> prevLast = first.next;
+        Node<E> previous = first;
+        Node<E> current = first.next;
 
-        while (prevLast != null) {
-            prevPrevLast = prevLast;
-            prevLast = prevLast.next;
+        while (current != null) {
+            previous = current;
+            current = current.next;
         }
 
-        prevPrevLast.next = null;
-        last = prevPrevLast;
+        previous.next = null;
+        last = previous;
         size--;
 
         return data;
@@ -118,17 +118,17 @@ public class OneWayLinkedList<E> {
 
     private E unlinkByIndex(int index) {
         int position = 1;
-        Node<E> prevPrevLast = first;
-        Node<E> prevLast = first.next;
+        Node<E> previous = first;
+        Node<E> current = first.next;
 
         while (position < index) {
-            prevPrevLast = prevLast;
-            prevLast = prevLast.next;
+            previous = current;
+            current = current.next;
             position++;
         }
 
-        E data = prevLast.data;
-        prevPrevLast.next = prevLast.next;
+        E data = current.data;
+        previous.next = current.next;
         size--;
 
         return data;
@@ -148,11 +148,11 @@ public class OneWayLinkedList<E> {
 
     private void interLink(int firstIndex, int secondIndex) {
         int position = 1;
-        Node<E> firstPairPrev = first;
+        Node<E> firstPairPrevious = first;
         Node<E> firstPairCurrent = first.next;
 
         while (position < firstIndex) {
-            firstPairPrev = firstPairCurrent;
+            firstPairPrevious = firstPairCurrent;
             firstPairCurrent = firstPairCurrent.next;
             position++;
         }
@@ -160,20 +160,20 @@ public class OneWayLinkedList<E> {
         Node<E> firstPairLast = firstPairCurrent.next;
 
         position = 1;
-        Node<E> secondPairPrev = first;
+        Node<E> secondPairPrevious = first;
         Node<E> secondPairCurrent = first.next;
 
         while (position < secondIndex) {
-            secondPairPrev = secondPairCurrent;
+            secondPairPrevious = secondPairCurrent;
             secondPairCurrent = secondPairCurrent.next;
             position++;
         }
 
         Node<E> secondPairLast = secondPairCurrent.next;
 
-        firstPairPrev.next = secondPairCurrent;
+        firstPairPrevious.next = secondPairCurrent;
         secondPairCurrent.next = firstPairLast;
-        secondPairPrev.next = firstPairCurrent;
+        secondPairPrevious.next = firstPairCurrent;
         firstPairCurrent.next = secondPairLast;
     }
 

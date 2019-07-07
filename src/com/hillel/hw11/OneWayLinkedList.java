@@ -171,10 +171,16 @@ public class OneWayLinkedList<E> {
 
         Node<E> secondPairLast = secondPairCurrent.next;
 
-        firstPairPrevious.next = secondPairCurrent;
-        secondPairCurrent.next = firstPairLast;
-        secondPairPrevious.next = firstPairCurrent;
-        firstPairCurrent.next = secondPairLast;
+        if (firstIndex + 1 == secondIndex) {
+            firstPairPrevious.next = secondPairCurrent;
+            secondPairCurrent.next = firstPairCurrent;
+            firstPairCurrent.next = secondPairLast;
+        } else {
+            firstPairPrevious.next = secondPairCurrent;
+            secondPairCurrent.next = firstPairLast;
+            secondPairPrevious.next = firstPairCurrent;
+            firstPairCurrent.next = secondPairLast;
+        }
     }
 
     public void interChange(int firstIndex, int secondIndex) {

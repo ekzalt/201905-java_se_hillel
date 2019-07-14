@@ -22,7 +22,6 @@ public class FileService {
         try (BufferedInputStream input = new BufferedInputStream(new FileInputStream(path))) {
             byte[] bytes = input.readAllBytes();
             String string = new String(bytes, CHARSET);
-            System.out.println(string);
 
             return string;
         } catch (FileNotFoundException e) {

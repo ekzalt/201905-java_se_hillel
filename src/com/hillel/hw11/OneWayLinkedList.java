@@ -1,18 +1,9 @@
 package com.hillel.hw11;
 
 import java.util.NoSuchElementException;
+import java.util.StringJoiner;
 
 public class OneWayLinkedList<E> {
-    private static class Node<E> {
-        public E data;
-        public Node<E> next;
-
-        public Node(E data, Node<E> next) {
-            this.data = data;
-            this.next = next;
-        }
-    }
-
     private int size = 0;
     private Node<E> first;
     private Node<E> last;
@@ -25,10 +16,18 @@ public class OneWayLinkedList<E> {
         addAll(array);
     }
 
+    public OneWayLinkedListIterator<E> getIterator() {
+        return new OneWayLinkedListIterator<E>(getFirstNode());
+    }
+
     public void addAll(E[] array) {
         for (E data : array) {
             addLast(data);
         }
+    }
+
+    public void add(E data) {
+        addLast(data);
     }
 
     public void addLast(E data) {
@@ -208,23 +207,27 @@ public class OneWayLinkedList<E> {
             return "[ ]";
         }
 
-        StringBuilder builder = new StringBuilder();
+        StringJoiner joiner = new StringJoiner(", ", "[", "]");
         Node<E> current = first;
 
-        builder.append("[");
-
         do {
-            builder.append(" " + current.data.toString() + " ");
+            joiner.add(current.data.toString());
             current = current.next;
         } while (current != null);
 
-        builder.append("]");
-
-        return builder.toString();
+        return joiner.toString();
     }
 
     public int getSize() {
         return size;
+    }
+
+    private Node<E> getFirstNode() {
+        return first;
+    }
+
+    private Node<E> getLastNode() {
+        return last;
     }
 
     public E getFirst() {
@@ -232,7 +235,7 @@ public class OneWayLinkedList<E> {
             throw new NoSuchElementException();
         }
 
-        return first.data;
+        return getFirstNode().data;
     }
 
     public E getLast() {
@@ -240,6 +243,6 @@ public class OneWayLinkedList<E> {
             throw new NoSuchElementException();
         }
 
-        return last.data;
+        return getLastNode().data;
     }
 }

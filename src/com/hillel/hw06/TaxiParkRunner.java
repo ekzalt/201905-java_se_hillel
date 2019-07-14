@@ -1,13 +1,13 @@
 package com.hillel.hw06;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+
 import com.hillel.hw06.park.ITaxiPark;
 import com.hillel.hw06.park.TaxiPark;
 import com.hillel.hw06.vehicle.IVehicle;
 import com.hillel.hw06.vehicle.Toyota;
 import com.hillel.hw12.VehicleComparator;
-
-import java.util.Arrays;
-import java.util.Comparator;
 
 public class TaxiParkRunner {
     public void run() {
@@ -34,23 +34,23 @@ public class TaxiParkRunner {
             }
         };
 
-        IVehicle[] cars = {
-                new Toyota(200, 20000, 5, 2, "Auris"),
-                new Toyota(150, 40000, 10, 7, "4 Runner"),
-                new Toyota(250, 30000, 7, 5, "Camry"),
-        };
+        ArrayList<IVehicle> cars = new ArrayList<>();
+        cars.add(new Toyota(200, 20000, 5, 2, "Auris"));
+        cars.add(new Toyota(150, 40000, 10, 7, "4 Runner"));
+        cars.add(new Toyota(250, 30000, 7, 5, "Camry"));
+
         ITaxiPark park = new TaxiPark();
 
         System.out.println("\nsort with interface implementation\n");
-        park.setCars(Arrays.copyOf(cars, cars.length));
-        System.out.println(Arrays.toString(park.sort(comparatorImp)));
+        park.setCars(cars);
+        System.out.println(park.sort(comparatorImp));
 
         System.out.println("\nsort with lambda\n");
-        park.setCars(Arrays.copyOf(cars, cars.length));
-        System.out.println(Arrays.toString(park.sort(comparatorLambda)));
+        park.setCars(cars);
+        System.out.println(park.sort(comparatorLambda));
 
         System.out.println("\nsort with link to method\n");
-        park.setCars(Arrays.copyOf(cars, cars.length));
-        System.out.println(Arrays.toString(park.sort(VehicleComparator::compare)));
+        park.setCars(cars);
+        System.out.println(park.sort(VehicleComparator::compare));
     }
 }

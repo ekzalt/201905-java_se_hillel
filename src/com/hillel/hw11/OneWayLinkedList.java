@@ -1,9 +1,10 @@
 package com.hillel.hw11;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.StringJoiner;
 
-public class OneWayLinkedList<E> {
+public class OneWayLinkedList<E> implements Iterable<E> {
     private int size = 0;
     private Node<E> first;
     private Node<E> last;
@@ -16,7 +17,7 @@ public class OneWayLinkedList<E> {
         addAll(array);
     }
 
-    public OneWayLinkedListIterator<E> getIterator() {
+    public Iterator<E> iterator() {
         return new OneWayLinkedListIterator<E>(getFirstNode());
     }
 

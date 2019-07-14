@@ -1,8 +1,9 @@
 package com.hillel.hw11;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class OneWayLinkedListIterator<E> {
+public class OneWayLinkedListIterator<E> implements Iterator<E> {
     public int position;
     public Node<E> element;
 

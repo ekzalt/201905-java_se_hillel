@@ -13,8 +13,10 @@ public class FileRunner {
         FileService fs = new FileService();
 
         String text = fs.readFile(inputFilePath);
+
         List<String> lines = Arrays.asList(text.split(System.lineSeparator()));
         Collections.reverse(lines);
+
         fs.writeFile(outputFilePath, String.join(System.lineSeparator(), lines));
     }
 }

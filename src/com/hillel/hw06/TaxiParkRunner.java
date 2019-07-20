@@ -2,6 +2,7 @@ package com.hillel.hw06;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 import com.hillel.hw06.park.ITaxiPark;
 import com.hillel.hw06.park.TaxiPark;
@@ -34,7 +35,7 @@ public class TaxiParkRunner {
             }
         };
 
-        ArrayList<IVehicle> cars = new ArrayList<>();
+        List<IVehicle> cars = new ArrayList<>();
         cars.add(new Toyota(200, 20000, 5, 2, "Auris"));
         cars.add(new Toyota(150, 40000, 10, 7, "4 Runner"));
         cars.add(new Toyota(250, 30000, 7, 5, "Camry"));

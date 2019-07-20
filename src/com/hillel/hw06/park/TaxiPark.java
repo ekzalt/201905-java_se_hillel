@@ -1,14 +1,11 @@
 package com.hillel.hw06.park;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 import com.hillel.hw06.vehicle.IVehicle;
 
 public class TaxiPark implements ITaxiPark {
-    private ArrayList<IVehicle> cars;
+    private List<IVehicle> cars;
 
     public TaxiPark() {
         this.cars = new ArrayList<>();
@@ -32,13 +29,13 @@ public class TaxiPark implements ITaxiPark {
     }
 
     @Override
-    public ArrayList<IVehicle> sort(Comparator<? super IVehicle> comparator) {
+    public List<IVehicle> sort(Comparator<? super IVehicle> comparator) {
         cars.sort( comparator);
         return cars;
     }
 
     @Override
-    public ArrayList<IVehicle> sort(ArrayList<IVehicle> array, Comparator<? super IVehicle> comparator) {
+    public List<IVehicle> sort(List<IVehicle> array, Comparator<? super IVehicle> comparator) {
         Collections.sort(array, comparator);
         return array;
     }
@@ -55,9 +52,11 @@ public class TaxiPark implements ITaxiPark {
     }
 
     private IVehicle[] resizeAndPush(IVehicle[] cars, IVehicle car) {
-
-        // IVehicle[] copy = new Toyota[cars.length + 1];
-        // for (int i = 0; i < cars.length; i++) copy[i] = cars[i];
+        /*
+        // custom resize and copy
+        IVehicle[] copy = new Toyota[cars.length + 1];
+        for (int i = 0; i < cars.length; i++) copy[i] = cars[i];
+         */
 
         IVehicle[] copy = Arrays.copyOf(cars, cars.length + 1);
         copy[copy.length - 1] = car;
@@ -66,8 +65,8 @@ public class TaxiPark implements ITaxiPark {
     }
 
     @Override
-    public ArrayList<IVehicle> findBySpeedRange(int min, int max) {
-        ArrayList<IVehicle> filtered = new ArrayList<>();
+    public List<IVehicle> findBySpeedRange(int min, int max) {
+        List<IVehicle> filtered = new ArrayList<>();
 
         for (IVehicle car : cars) {
             if (car.getSpeed() >= min && car.getSpeed() <= max) {
@@ -79,7 +78,7 @@ public class TaxiPark implements ITaxiPark {
     }
 
     @Override
-    public void setCars(ArrayList<IVehicle> cars) {
+    public void setCars(List<IVehicle> cars) {
         this.cars = cars;
     }
 }

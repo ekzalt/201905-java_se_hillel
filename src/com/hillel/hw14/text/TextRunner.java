@@ -1,4 +1,4 @@
-package com.hillel.hw13.text;
+package com.hillel.hw14.text;
 
 import java.util.*;
 
@@ -10,11 +10,7 @@ public class TextRunner {
 
     public ArrayList<String> splitTextToWords(String text) {
         ArrayList<String> words = new ArrayList<>();
-        String[] parts = text.split("[;:,.-]+");
-
-        for (String part : parts) {
-            words.addAll(Arrays.asList(part.trim().split(" ")));
-        }
+        words.addAll(Arrays.asList(text.split("\\W+")));
 
         return words;
     }

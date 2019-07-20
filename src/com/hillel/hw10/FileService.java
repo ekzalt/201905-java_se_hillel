@@ -4,13 +4,12 @@ import java.io.*;
 import java.util.Arrays;
 
 public class FileService {
-    String WINDOWS_LINE_SEPARATOR = "\r\n";
-    String CHARSET = "UTF-8";
+    public static final String CHARSET = "UTF-8";
 
     public void writeFile(String path, String text) {
         try (BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(path))) {
             bufferedOutputStream.write(text.getBytes());
-            bufferedOutputStream.write(WINDOWS_LINE_SEPARATOR.getBytes());
+            bufferedOutputStream.write(System.lineSeparator().getBytes());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

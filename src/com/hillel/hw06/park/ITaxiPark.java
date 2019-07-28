@@ -11,7 +11,6 @@ public interface ITaxiPark {
     List<IVehicle> findBySpeedRange(int min, int max);
 
     List<IVehicle> sort(Comparator<? super IVehicle> comparator);
-    List<IVehicle> sort(List<IVehicle> array, Comparator<? super IVehicle> comparator);
 
     void setCars(List<IVehicle> cars);
 }

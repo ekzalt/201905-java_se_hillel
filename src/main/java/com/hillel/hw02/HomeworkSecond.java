@@ -12,8 +12,6 @@ package com.hillel.hw02;
 8. Вывести числа от 1 до k в виде матрицы N x N слева направо и сверху вниз
  */
 
-import org.jetbrains.annotations.NotNull;
-
 public class HomeworkSecond {
     private int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     private int[][] matrixA = {
@@ -29,14 +27,14 @@ public class HomeworkSecond {
     private int[] bigIntegers = {1, 12, 123, 1234, 12345, 123456, 1234567, 12345678, 123456789, 1234567890};
     private int[] diffIntegers = {123, 321, 456, 654, 789, 987};
 
-    public void printOddEven(@NotNull int[] list) {
+    public void printOddEven(int[] list) {
         for (int i: list) {
             if (i % 2 == 0) System.out.println("even: " + i);
             else System.out.println("odd: " + i);
         }
     }
 
-    public void printSimple(@NotNull int[] list) {
+    public void printSimple(int[] list) {
         for (int i: list) {
             if (i <= 1) continue;
 
@@ -55,7 +53,7 @@ public class HomeworkSecond {
         }
     }
 
-    public void printFibo(@NotNull int max) {
+    public void printFibo(int max) {
         int prev = 1, last = 0, sum;
 
         for (int i = 0; i < max; i++) {
@@ -67,7 +65,7 @@ public class HomeworkSecond {
         }
     }
 
-    public int[] getMinAndMax(@NotNull int[] list) {
+    public int[] getMinAndMax(int[] list) {
         int min, max;
         min = max = list[0];
 
@@ -79,7 +77,7 @@ public class HomeworkSecond {
         return new int[] {min, max};
     }
 
-    public int[][] multiplyMatrix(@NotNull int[][] m1, @NotNull int[][] m2) throws UnsupportedOperationException {
+    public int[][] multiplyMatrix(int[][] m1, int[][] m2) throws UnsupportedOperationException {
         int m1ColLength = m1[0].length;
         int m2RowLength = m2.length;
 
@@ -98,7 +96,7 @@ public class HomeworkSecond {
         return mResult;
     }
 
-    public String toString(@NotNull int[][] m) {
+    public String toString(int[][] m) {
         String result = "";
 
         for (int i = 0; i < m.length; i++) {
@@ -122,7 +120,7 @@ public class HomeworkSecond {
         return length;
     }
 
-    public void printDiffIntegers(@NotNull int[] list) {
+    public void printDiffIntegers(int[] list) {
         int[] acc = new int[10];
 
         for (int i: list) {

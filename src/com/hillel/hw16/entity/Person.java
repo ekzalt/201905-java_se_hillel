@@ -1,19 +1,29 @@
 package com.hillel.hw16.entity;
 
-public class Person extends Base {
-    private String name;
+import java.sql.Date;
 
-    public Person(int id, String name) {
-        super(id);
+public abstract class Person extends Entity {
+    private Date born;
 
-        this.name = name;
+    public Person(int id, String name, Date born) {
+        super(id, name);
+
+        this.born = born;
     }
 
-    public String getName() {
-        return name;
+    public Date getBorn() {
+        return born;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBorn(Date born) {
+        this.born = born;
+    }
+
+    @Override
+    public String toString() {
+        return "" + getClass().getSimpleName() + "{" +
+                "name='" + getName() + '\'' +
+                "born=" + getBorn() +
+                '}';
     }
 }

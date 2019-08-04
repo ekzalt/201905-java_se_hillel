@@ -1,44 +1,37 @@
 package com.hillel.hw16.entity;
 
+import java.sql.Date;
 import java.util.List;
 
-public class Film extends Base {
-    private String name;
-    private List<String> actors;
-    private String director;
+public class Film extends Entity {
+    private List<Actor> actors;
+    private Director director;
     private String country;
+    private Date released;
 
-    public Film(int id, String name, List<String> actors,String director, String country) {
-        super(id);
+    public Film(int id, String name, List<Actor> actors, Director director, String country, Date released) {
+        super(id, name);
 
-        this.name = name;
         this.actors = actors;
         this.director = director;
         this.country = country;
+        this.released = released;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<String> getActors() {
+    public List<Actor> getActors() {
         return actors;
     }
 
-    public void setActors(List<String> actors) {
+    public void setActors(List<Actor> actors) {
         this.actors = actors;
     }
 
-    public String getDirectors() {
+    public Director getDirector() {
         return director;
     }
 
-    public void setDirectors(String directors) {
-        this.director = directors;
+    public void setDirector(Director director) {
+        this.director = director;
     }
 
     public String getCountry() {
@@ -49,13 +42,22 @@ public class Film extends Base {
         this.country = country;
     }
 
+    public Date getReleased() {
+        return released;
+    }
+
+    public void setReleased(Date released) {
+        this.released = released;
+    }
+
     @Override
     public String toString() {
         return "Film{" +
-                "name='" + name + '\'' +
-                ", actors=" + actors +
-                ", director='" + director + '\'' +
-                ", country='" + country + '\'' +
+                "name='" + getName() + '\'' +
+                ", actors=" + getActors() +
+                ", director='" + getDirector() + '\'' +
+                ", country='" + getCountry() + '\'' +
+                ", released='" + getReleased() + '\'' +
                 '}';
     }
 }

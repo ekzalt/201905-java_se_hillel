@@ -1,3 +1,5 @@
+package com.hillel;
+
 import com.hillel.hw16.VideoLibrary;
 
 public class Main {

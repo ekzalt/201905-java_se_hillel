@@ -1,2 +1,7 @@
-# Java SE homework
-Here is Java SE homework for Hillel
+# JavaEE Maven WebApp
+
+## Run application
+
+```bash
+mvn exec:java
+```

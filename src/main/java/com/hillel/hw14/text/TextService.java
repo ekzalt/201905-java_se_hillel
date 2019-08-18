@@ -4,14 +4,14 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TextRunner {
-    private final String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
+public class TextService {
+    public static final String TEXT = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
             "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. " +
             "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. " +
             "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
     public void run() {
-        List<String> words = splitTextToWords(text);
+        List<String> words = splitTextToWords(TEXT);
 
         System.out.println("\ntask 1\n");
         printMap(countRepetitions(words));
@@ -23,7 +23,7 @@ public class TextRunner {
         printSet(collectFirstLastLetterMatch(words));
 
         System.out.println("\ntask 4\n");
-        System.out.println(countPunctuationMarks(text));
+        System.out.println(countPunctuationMarks(TEXT));
     }
 
     public List<String> splitTextToWords(String text) {

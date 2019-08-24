@@ -1,6 +1,6 @@
 package com.hillel;
 
-// import com.hillel.hw16.VideoLibrary;
+// import com.hillel.VideoLibrary;
 
 public class Main {
     public static void main(String[] args) {

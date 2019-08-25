@@ -30,7 +30,7 @@ public class Provider implements ProviderInterface {
                 "&amp" +
                 "&serverTimezone=UTC";
 
-        // Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
 
         return DriverManager.getConnection(url, user, password);
     }

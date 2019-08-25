@@ -14,10 +14,10 @@ import java.util.Map;
 
 @WebServlet("/word")
 public class WordServlet extends HttpServlet {
-    // services
-    private final TextService textService = new TextService();
     // constants
     public static final String CHARSET = "UTF-8";
+    // services
+    private final TextService textService = new TextService();
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int count = 0;

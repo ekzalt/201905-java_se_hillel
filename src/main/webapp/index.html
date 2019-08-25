@@ -1,21 +1,22 @@
 <!-- <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" session="false"%> -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Main page</title>
+  <title>Video Library - Main</title>
 </head>
 
 <body>
-  <h1>Homework 19</h1>
+  <h1>Video Library</h1>
+
   <section>
     <h2>Sort Numbers</h2>
     <p>Enter unsorted integers, for example: 1,3,2</p>
     <form action="numbers" method="post">
-      <input type="text" name="numbers" id="numbers">
+      <input type="text" name="numbers" id="numbers" placeholder="1,3,2">
       <input type="submit" value="submit">
     </form>
   </section>
@@ -24,9 +25,21 @@
     <h2>Find word</h2>
     <p>Enter word to find, for example: hello</p>
     <form action="word" method="post">
-      <input type="text" name="word" id="word">
+      <input type="text" name="word" id="word" placeholder="hello">
       <input type="submit" value="submit">
     </form>
+  </section>
+
+  <section>
+    <h2>Menu</h2>
+    <menu type="context">
+      <ul>
+        <li><a href="films/years">Find films between years</a></li>
+        <li><a href="actors/film">Find actors by film name</a></li>
+        <li><a href="actors/films-count">Find actors who has films count</a></li>
+        <li><a href="directors/name">Find director by name</a></li>
+      </ul>
+    </menu>
   </section>
 </body>
 

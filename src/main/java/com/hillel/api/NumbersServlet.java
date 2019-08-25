@@ -21,7 +21,8 @@ public class NumbersServlet extends HttpServlet {
         String requestNumbers = request.getParameter("numbers");
 
         if (requestNumbers != null) {
-            list = Arrays.stream(requestNumbers.split(","))
+            list = Arrays
+                    .stream(requestNumbers.split(","))
                     .sorted()
                     .collect(Collectors.toList());
         }

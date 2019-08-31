@@ -1,0 +1,12 @@
+<header>
+  <h2>Menu</h2>
+  <menu type="context">
+    <ul>
+      <li><a href="/">Main</a></li>
+      <li><a href="/films/years">Find films between years</a></li>
+      <li><a href="/actors/film">Find actors by film name</a></li>
+      <li><a href="/actors/films-count">Find actors who has films count</a></li>
+      <li><a href="/directors/name">Find director by name</a></li>
+    </ul>
+  </menu>
+</header>

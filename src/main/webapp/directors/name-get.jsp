@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" session="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -11,6 +12,8 @@
 </head>
 
 <body>
+  <c:import url="/jspf/menu.jspf"></c:import>
+
   <section>
     <h2>Find director by name</h2>
     <p>Enter director name, for example: test</p>

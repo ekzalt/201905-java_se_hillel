@@ -1,4 +1,6 @@
-<!-- <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" session="false"%> -->
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" session="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +12,7 @@
 </head>
 
 <body>
+  <c:import url="/jspf/menu.jspf"></c:import>
   <h1>Video Library</h1>
 
   <section>
@@ -28,18 +31,6 @@
       <input type="text" name="word" id="word" placeholder="hello">
       <input type="submit" value="submit">
     </form>
-  </section>
-
-  <section>
-    <h2>Menu</h2>
-    <menu type="context">
-      <ul>
-        <li><a href="films/years">Find films between years</a></li>
-        <li><a href="actors/film">Find actors by film name</a></li>
-        <li><a href="actors/films-count">Find actors who has films count</a></li>
-        <li><a href="directors/name">Find director by name</a></li>
-      </ul>
-    </menu>
   </section>
 </body>
 

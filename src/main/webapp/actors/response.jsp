@@ -29,6 +29,8 @@ Function Tags
 </head>
 
 <body>
+  <c:import url="/jspf/menu.jspf"></c:import>
+
   <section>
     <h2>Actors</h2>
     <table>

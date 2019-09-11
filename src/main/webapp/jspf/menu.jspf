@@ -1,12 +1,26 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <header>
-  <h2>Menu</h2>
-  <menu type="context">
-    <ul>
-      <li><a href="/">Main</a></li>
-      <li><a href="/films/years">Find films between years</a></li>
-      <li><a href="/actors/film">Find actors by film name</a></li>
-      <li><a href="/actors/films-count">Find actors who has films count</a></li>
-      <li><a href="/directors/name">Find director by name</a></li>
-    </ul>
-  </menu>
+  <h2>Header</h2>
+  <c:choose>
+    <c:when test="${not empty user}">
+      Hello ${user.name}, ${user.role} <a href="/logout">Logout</a>
+    </c:when>
+    <c:otherwise>
+      <a href="/login">Login</a>
+    </c:otherwise>
+  </c:choose>
 </header>
+
+<menu type="context">
+  <h2>Menu</h2>
+  <ul>
+    <li><a href="/">Main</a></li>
+    <li><a href="/films/years">Find films between years</a></li>
+    <li><a href="/films/delete">Delete old films</a></li>
+    <li><a href="/actors/film">Find actors by film name</a></li>
+    <li><a href="/actors/films-count">Find actors who has films count</a></li>
+    <li><a href="/directors/name">Find director by name</a></li>
+  </ul>
+</menu>
+

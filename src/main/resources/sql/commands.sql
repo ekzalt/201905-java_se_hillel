@@ -30,3 +30,6 @@ SELECT * FROM `local`.directors
 DELETE FROM `local`.films
   WHERE released < '2000-01-01';
 */
+
+SELECT * FROM `local`.users
+  WHERE `local`.users.name = 'admin' AND `local`.users.password = 'admin';

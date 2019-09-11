@@ -1,8 +1,6 @@
 package com.hillel.dao;
 
-import com.hillel.entity.Actor;
-import com.hillel.entity.Director;
-import com.hillel.entity.Film;
+import com.hillel.entity.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -189,5 +187,36 @@ public class Database implements DatabaseInterface {
 
         provider.close(resultSet,preparedStatement, connection);
         return directorId > 0 ? new Director(directorId, directorName, directorBorn) : null;
+    }
+
+    @Override
+    public User findUser(String name, String password) {
+        User user = null;
+        String query = "SELECT * FROM `local`.users "
+                + "WHERE `local`.users.name = ? AND `local`.users.password = ?";
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = provider.getConnection();
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, password);
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                int id = resultSet.getInt(1);
+                Role role = Role.valueOf(resultSet.getString(4));
+                user = new User(id, name, password, role);
+            }
+        } catch (SQLException error) {
+            error.printStackTrace();
+        } catch (ClassNotFoundException error) {
+            error.printStackTrace();
+        }
+
+        provider.close(resultSet,preparedStatement, connection);
+        return user;
     }
 }

@@ -22,6 +22,7 @@ public abstract class Person extends Entity {
     @Override
     public String toString() {
         return "" + getClass().getSimpleName() + "{" +
+                "id='" + getId() + '\'' +
                 "name='" + getName() + '\'' +
                 "born=" + getBorn() +
                 '}';
